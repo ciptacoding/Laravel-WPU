@@ -19,5 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('posts/{post:slug}', [PostController::class, 'show']); // route model binding
+Route::get('/posts/{post:slug}', [PostController::class, 'show']); // route model binding
 //{slug} adalah wildcard yang mengambil semua nilai yang ada pada url
+
+Route::get('/categories', [PostController::class, 'categories']);
+Route::get('/category/{category:slug}', [PostController::class, 'showCategory']);

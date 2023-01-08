@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model
+class Category extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
 
-    public function category()
+    public function posts()
     {
-      return $this->belongsto(Category::class); //relasi one to one dengan model category
+      return $this->hasMany(Post::class); //relasi one to many dengan model Post
     }
 }

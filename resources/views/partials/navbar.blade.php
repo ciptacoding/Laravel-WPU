@@ -15,6 +15,9 @@
             <li class="nav-item">
               <a class="nav-link {{ ($headTitle === 'Posts') ? 'active' : '' }}" href="/posts">Posts</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link {{ ($headTitle === 'Categories') ? 'active' : '' }}" href="/categories">Categories</a>
+            </li>
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
