@@ -10,7 +10,7 @@ class HomeController extends Controller
   {
     return view('home', [
       "headTitle" => "Home",
-      "message" => "Welcome to my homepage"
+      "active" => "home"
     ]);
   }
 }

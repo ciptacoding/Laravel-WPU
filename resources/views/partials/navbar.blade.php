@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg bg-danger navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
       <div class="container">
         <a class="navbar-brand" href="/">PORTAL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,24 +7,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link {{ ($headTitle === 'Home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+              <a class="nav-link {{ ($active === 'home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ ($headTitle === 'About') ? 'active' : '' }}" href="/about">About</a>
+              <a class="nav-link {{ ($active === 'about') ? 'active' : '' }}" href="/about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ ($headTitle === 'Posts') ? 'active' : '' }}" href="/posts">Posts</a>
+              <a class="nav-link {{ ($active === 'posts') ? 'active' : '' }}" href="/posts">Posts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ ($headTitle === 'Categories') ? 'active' : '' }}" href="/categories">Categories</a>
+              <a class="nav-link {{ ($active === 'category') ? 'active' : '' }}" href="/categories">Categories</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffffff">
+      <div class="container">
+        <h2>{{ $headTitle }}</h2>
+      </div>
+    </nav>
+
 
     

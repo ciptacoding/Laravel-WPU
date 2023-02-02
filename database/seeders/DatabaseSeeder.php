@@ -17,96 +17,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+        Post::factory(20)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-          'name' => 'Cipta Dwipajaya',
-          'email' => 'ciptdwpjy@gmail.com',
-          'password' => bcrypt('1234')
-        ]);
+        // User::create([
+        //   'name' => 'Cipta Dwipajaya',
+        //   'email' => 'ciptdwpjy@gmail.com',
+        //   'password' => bcrypt('1234')
+        // ]);
 
-        User::create([
-          'name' => 'Abel Yoshuara',
-          'email' => 'abelyshr@gmail.com',
-          'password' => bcrypt('1234')
-        ]);
-
-        Post::create([
-          'category_id' => 1,
-          'user_id' => 1,
-          'title' => 'Judul Pertama',
-          'slug' => 'judul-pertama',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 1,
-          'user_id' => 2,
-          'title' => 'Judul Kedua',
-          'slug' => 'judul-kedua',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 2,
-          'user_id' => 1,
-          'title' => 'Judul Ketiga',
-          'slug' => 'judul-ketiga',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 2,
-          'user_id' => 2,
-          'title' => 'Judul Keempat',
-          'slug' => 'judul-keempat',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 3,
-          'user_id' => 1,
-          'title' => 'Judul Kelima',
-          'slug' => 'judul-kelima',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 3,
-          'user_id' => 2,
-          'title' => 'Judul Keenam',
-          'slug' => 'judul-keenam',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 4,
-          'user_id' => 1,
-          'title' => 'Judul Ketujuh',
-          'slug' => 'judul-ketujuh',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
-
-        Post::create([
-          'category_id' => 4,
-          'user_id' => 2,
-          'title' => 'Judul Kedelapan',
-          'slug' => 'judul-kedelapan',
-          'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
-          'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
-        ]);
+        // Post::create([
+        //   'category_id' => 1,
+        //   'user_id' => 1,
+        //   'title' => 'Judul Pertama',
+        //   'slug' => 'judul-pertama',
+        //   'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad',
+        //   'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam autem laudantium, aliquam cum tempora nostrum sequi impedit corporis saepe animi ad. Enim facilis voluptatem ad aspernatur repellat maiores nemo corrupti veniam magni! Modi fugit esse molestias qui non molestiae ratione alias consequuntur vitae est a voluptatibus inventore nobis quis optio facilis exercitationem itaque quae adipisci voluptatem similique, magnam, enim explicabo ipsum. Nulla eius pariatur eaque, voluptates praesentium delectus velit nisi ullam omnis nobis. Atque cupiditate doloribus exercitationem! Fugit officiis consequuntur vitae perferendis ratione maxime id, voluptates voluptatibus numquam nobis pariatur, delectus vero fuga quas nam! Quas assumenda magni corporis?'
+        // ]);
 
         Category::create([
           'name' => 'Web Developer',

@@ -24,3 +24,4 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']); // route mode
 
 Route::get('/categories', [PostController::class, 'categories']);
 Route::get('/category/{category:slug}', [PostController::class, 'showCategory']);
+Route::get('/authors/{user:username}', [PostController::class, 'showAuthors']);

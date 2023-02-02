@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,9 @@ class PostController extends Controller
   {
     return view('posts', 
     [
-      "headTitle" => "Posts",
-      "posts" => Post::all()
+      "headTitle" => "All Posts",
+      "active" => "posts",
+      "posts" => Post::latest()->get()
     ]);
   }
 
@@ -22,6 +24,7 @@ class PostController extends Controller
     return view('post', 
     [
       "headTitle" => "Posts",
+      "active" => "posts",
       "post" => $post //route model binding
     ]);
   }
@@ -31,17 +34,26 @@ class PostController extends Controller
     return view('categories', 
     [
       "headTitle" => "Categories",
+      "active" => "category",
       "categories" => Category::all()
     ]);
   }
 
   public function showCategory(Category $category)
   {
-    return view('category', 
+    return view('posts', 
     [
-      "headTitle" => "Category", 
+      "headTitle" => "Category",
+      "active" => "category",
       "posts" => $category->posts,
-      "category" => $category->name,
+    ]);
+  }
+
+  public function showAuthors(User $user){
+    return view('posts',[
+      "headTitle" => "Posts By Authors",
+      "active" => "posts",
+      "posts" => $user->posts->load('category', 'user')
     ]);
   }
 }
