@@ -11,11 +11,22 @@ class PostController extends Controller
 {
   public function index()
   {
+    $title = '';
+
+    if(request('category')){
+      $category = Category::firstWhere('slug', request('category'));
+      $title = ' in ' . $category->name;
+    }
+    if(request('user')){
+      $user = User::firstWhere('username', request('user'));
+      $title = ' by ' . $user->name;
+    }
+
     return view('posts', 
     [
-      "headTitle" => "All Posts",
+      "headTitle" => "All Posts". $title,
       "active" => "posts",
-      "posts" => Post::latest()->get()
+      "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->paginate(7)->withQueryString()
     ]);
   }
 
@@ -23,7 +34,7 @@ class PostController extends Controller
   {
     return view('post', 
     [
-      "headTitle" => "Posts",
+      "headTitle" => $post->title,
       "active" => "posts",
       "post" => $post //route model binding
     ]);
@@ -33,27 +44,27 @@ class PostController extends Controller
   {
     return view('categories', 
     [
-      "headTitle" => "Categories",
+      "headTitle" => "Posts Categories",
       "active" => "category",
       "categories" => Category::all()
     ]);
   }
 
-  public function showCategory(Category $category)
-  {
-    return view('posts', 
-    [
-      "headTitle" => "Category",
-      "active" => "category",
-      "posts" => $category->posts,
-    ]);
-  }
+  // public function showCategory(Category $category)
+  // {
+  //   return view('posts', 
+  //   [
+  //     "headTitle" => "Category : ".$category->name,
+  //     "active" => "category",
+  //     "posts" => $category->posts,
+  //   ]);
+  // }
 
-  public function showAuthors(User $user){
-    return view('posts',[
-      "headTitle" => "Posts By Authors",
-      "active" => "posts",
-      "posts" => $user->posts->load('category', 'user')
-    ]);
-  }
+  // public function showAuthors(User $user){
+  //   return view('posts',[
+  //     "headTitle" => "Posts By Authors : ".$user->name,
+  //     "active" => "posts",
+  //     "posts" => $user->posts->load('category', 'user')
+  //   ]);
+  // }
 }
