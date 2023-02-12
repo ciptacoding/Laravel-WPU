@@ -5,6 +5,13 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Posts by {{ auth()->user()->name }}</h1>
     </div>
+    <a href="/dashboard/posts/create" class="btn btn-info btn-sm mb-2">Create New Post</a>
+    @if (session()->has('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

@@ -6,7 +6,7 @@
       <h4>{{ $post->title }}</h4>
     </div>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-lg-8">
         <article>
           <div class="mb-2">
               <a href="/dashboard/posts" class="badge bg-secondary text-decoration-none"><i data-feather="arrow-left-circle"></i> Back to my posts</a>
