@@ -9,9 +9,13 @@
       <div class="col-lg-8">
         <article>
           <div class="mb-2">
-              <a href="/dashboard/posts" class="badge bg-secondary text-decoration-none"><i data-feather="arrow-left-circle"></i> Back to my posts</a>
-              <a href="" class="badge bg-warning text-decoration-none"><i data-feather="edit"></i> Edit</a>
-              <a href="" class="badge bg-danger text-decoration-none"><i data-feather="trash-2"></i> Delete</a>
+              <a href="/dashboard/posts" class="btn btn-secondary btn-sm border-0"><i data-feather="arrow-left-circle"></i> Back to my posts</a>
+              <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning btn-sm border-0"><i data-feather="edit"></i> Edit</a>
+              <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><i data-feather="trash-2"></i> Delete</button>
+              </form>
           </div>         
           <img src="https://source.unsplash.com/800x400/?{{ $post->category->name }}" class="img-fluid" alt="">
             {{-- blade template without escaping --}}
