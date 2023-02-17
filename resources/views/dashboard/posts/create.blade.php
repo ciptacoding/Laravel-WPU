@@ -9,7 +9,7 @@
         <a href="/dashboard/posts" class="btn btn-secondary btn-sm border-0"><i data-feather="arrow-left-circle"></i> Back to my posts</a>
       </div>
       <div class="col-lg-8">
-        <form method="post" action="/dashboard/posts">
+        <form method="post" action="/dashboard/posts" enctype="multipart/form-data">
           @csrf 
 
           <div class="mb-3">
@@ -43,6 +43,16 @@
                   @endif
                 @endforeach
               </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+            <div class="invalid-feedback">
+              @error('image')
+                {{ $message }}
+              @enderror
+            </div>
           </div>
 
           <div class="mb-3">

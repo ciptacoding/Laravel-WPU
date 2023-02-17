@@ -16,8 +16,15 @@
                 @csrf
                 <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><i data-feather="trash-2"></i> Delete</button>
               </form>
-          </div>         
-          <img src="https://source.unsplash.com/800x400/?{{ $post->category->name }}" class="img-fluid" alt="">
+          </div>
+          @if ($post->image)
+            <div style="max-width: 800px; max-height: 400px; overflow:hidden">
+              <img src="{{ asset('storage/'. $post->image) }}" alt="" >
+            </div>
+          @else
+            <img src="https://source.unsplash.com/800x400/?{{ $post->category->name }}" class="img-fluid" alt="">
+          @endif         
+          
             {{-- blade template without escaping --}}
           {!! $post->body !!} 
         </article>
