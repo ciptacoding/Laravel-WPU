@@ -9,9 +9,12 @@
         <a href="/dashboard/posts" class="btn btn-secondary btn-sm border-0"><i data-feather="arrow-left-circle"></i> Back to my posts</a>
       </div>
       <div class="col-lg-8">
-        <form method="post" action="/dashboard/posts/{{ $post->slug }}">
+        <form method="post" action="/dashboard/posts/{{ $post->slug }}" enctype="multipart/form-data">
           @method('put')
           @csrf 
+
+          {{-- input hidden untuk menghapus image lama yang sudah tidak terpakai --}}
+          <input type="hidden" name="oldImage" value="{{ old('image') }}">
 
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -47,6 +50,21 @@
           </div>
 
           <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            @if ($post->image)
+              <img src="{{ asset('storage/'.$post->image) }}" class="img-preview img-fluid mb-2 col-sm-6 d-block">
+            @else
+              <img src="" class="img-preview img-fluid mb-2 col-sm-6">
+            @endif
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()">
+            <div class="invalid-feedback">
+              @error('image')
+                {{ $message }}
+              @enderror
+            </div>
+          </div>
+
+          <div class="mb-3">
             <label for="body" class="form-label">Body</label>
             <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}" required>
             <trix-editor input="body"></trix-editor>
@@ -73,5 +91,20 @@
       document.addEventListener('trix-file-accept', function(e){
         e.preventDefault();
       });
+
+      // preview image
+      function previewImage()
+      {
+        const image = document.querySelector('#image');
+        const previewImage = document.querySelector('.img-preview');
+        previewImage.style.display = 'block';
+
+        const ofReader = new FileReader();
+        ofReader.readAsDataURL(image.files[0]);
+        
+        ofReader.onload = function(oFREvent){
+          previewImage.src = oFREvent.target.result;
+        }
+      }
     </script>
 @endsection
